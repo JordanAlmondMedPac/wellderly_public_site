@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Wellderly — tokens from Color System.pdf (white, navy, grey, coral, blue, pink scales).
+  Semantic aliases power Tailwind theme (sand, canvas, navy, ink, coral, mist, line).
+*/
+:root {
+  /* PDF — white */
+  --wld-white-500: #f7f6f4;
+  --wld-white-400: #f9f8f6;
+  --wld-white-300: #fafaf8;
+  /* PDF — navy */
+  --wld-navy-500: #09162a;
+  --wld-navy-400: #3a4555;
+  --wld-navy-300: #6b737f;
+  /* PDF — grey */
+  --wld-grey-900: #1c1f22;
+  --wld-grey-200: #d1d7dd;
+  --wld-grey-100: #e8ebee;
+  /* PDF — coral */
+  --wld-coral-500: #ed6c6c;
+  --wld-coral-600: #be5656;
+  /* PDF — blue (cool surfaces / mist) */
+  --wld-blue-100: #f0f3f8;
+  --wld-blue-200: #e2e7f1;
+  /* PDF — pink (warm tint) */
+  --wld-pink-100: #fbf9f9;
+
+  --color-sand: var(--wld-white-500);
+  --color-canvas: var(--wld-white-400);
+  --color-navy: var(--wld-navy-500);
+  --color-ink: var(--wld-grey-900);
+  --color-coral: var(--wld-coral-500);
+  --color-coral-hover: var(--wld-coral-600);
+  --color-mist: var(--wld-blue-100);
+  --color-line: var(--wld-grey-200);
+
+  --radius-card: 1.25rem;
+  --radius-control: 0.875rem;
+  --radius-shell: 1.75rem;
+
+  /* Navy 500 rgb(9, 22, 42) */
+  --shadow-soft: 0 1px 2px rgba(9, 22, 42, 0.04),
+    0 12px 40px rgba(9, 22, 42, 0.06);
+  --shadow-card: 0 1px 2px rgba(9, 22, 42, 0.05),
+    0 8px 28px rgba(9, 22, 42, 0.07);
+
+  --max-content: 72rem;
+  --max-assess: 26rem;
+
+  --font-sans: 'Google Sans Flex Variable', system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-sand font-sans text-navy antialiased;
+  }
+}
+
+@keyframes wellderly-breathe {
+  0%,
+  100% {
+    opacity: 0.28;
+  }
+  50% {
+    opacity: 0.52;
+  }
+}
+
+@layer utilities {
+  .animate-wellderly-breathe {
+    animation: wellderly-breathe 18s ease-in-out infinite;
+  }
+}

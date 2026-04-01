@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none" role="img" aria-labelledby="amyTitle">
+  <title id="amyTitle">Amy, your guide</title>
+  <!-- TODO: replace with final Amy portrait -->
+  <circle cx="40" cy="40" r="38" fill="#eef2f6" stroke="#e2e4e8" stroke-width="2"/>
+  <text x="40" y="48" text-anchor="middle" fill="#1a232e" font-family="system-ui, sans-serif" font-size="22" font-weight="600">A</text>
+</svg>

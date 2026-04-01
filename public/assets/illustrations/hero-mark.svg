@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 280" fill="none" role="img" aria-labelledby="hm">
+  <title id="hm">Community care mark</title>
+  <!-- TODO: replace with brand illustration or photography art direction -->
+  <rect width="320" height="280" rx="32" fill="#faf7f4"/>
+  <circle cx="120" cy="120" r="36" fill="#e0706c" opacity="0.9"/>
+  <circle cx="160" cy="112" r="28" fill="#94a3b8" opacity="0.95"/>
+  <circle cx="208" cy="120" r="36" fill="#1a232e" opacity="0.88"/>
+  <path d="M88 200c24-40 48-48 72-32 24-16 48-8 72 32" stroke="#e2e4e8" stroke-width="4" stroke-linecap="round"/>
+</svg>

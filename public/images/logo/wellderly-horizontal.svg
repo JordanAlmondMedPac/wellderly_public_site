@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" fill="none" role="img" aria-labelledby="title">
+  <title id="title">Wellderly</title>
+  <!-- TODO: replace with final brand horizontal logo export -->
+  <g opacity="0.9">
+    <circle cx="14" cy="14" r="6" fill="#e0706c"/>
+    <circle cx="28" cy="14" r="6" fill="#94a3b8"/>
+    <circle cx="42" cy="14" r="6" fill="#1a232e"/>
+    <path d="M8 26c4-6 12-6 16 0 4-6 12-6 16 0 4-6 12-6 16 0" stroke="#cbd5e1" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+  <text x="58" y="26" fill="#1a232e" font-family="system-ui, sans-serif" font-size="18" font-weight="600">Wellderly</text>
+</svg>
