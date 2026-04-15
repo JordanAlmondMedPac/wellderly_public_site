@@ -19,9 +19,9 @@
   --wld-grey-900: #1c1f22;
   --wld-grey-200: #d1d7dd;
   --wld-grey-100: #e8ebee;
-  /* PDF — coral */
-  --wld-coral-500: #ed6c6c;
-  --wld-coral-600: #be5656;
+  /* Primary actions — #F18989; hover darkened for affordance; navy label ≥ WCAG AA */
+  --wld-coral-500: #f18989;
+  --wld-coral-600: #d97373;
   /* PDF — blue (cool surfaces / mist) */
   --wld-blue-100: #f0f3f8;
   --wld-blue-200: #e2e7f1;

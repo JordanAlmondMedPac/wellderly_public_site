@@ -26,22 +26,22 @@ export function SiteHeader({ variant }: SiteHeaderProps) {
             </Link>
             <div className="flex flex-wrap items-center justify-end gap-x-5 gap-y-2 text-sm font-medium text-navy/78 sm:gap-x-6">
               <Link
-                href="#how-it-works"
+                href="/#how-it-works"
                 className="transition hover:text-navy focus:outline-none focus-visible:text-navy focus-visible:underline"
               >
                 How it works
               </Link>
               <Link
-                href="#what-you-get"
+                href="/#what-you-get"
                 className="transition hover:text-navy focus:outline-none focus-visible:text-navy focus-visible:underline"
               >
                 What you get
               </Link>
               <Link
-                href="#stories"
-                className="hidden transition hover:text-navy focus:outline-none focus-visible:text-navy focus-visible:underline sm:inline"
+                href="/about"
+                className="transition hover:text-navy focus:outline-none focus-visible:text-navy focus-visible:underline"
               >
-                Stories
+                About Us
               </Link>
               <Link
                 href="/assessment/relationship"
@@ -50,7 +50,7 @@ export function SiteHeader({ variant }: SiteHeaderProps) {
                   'min-h-11 px-6 py-2.5 text-[0.9375rem] shadow-card ring-1 ring-navy/[0.06]',
                 ].join(' ')}
               >
-                Start assessment
+                Start Assessment
               </Link>
             </div>
           </nav>
