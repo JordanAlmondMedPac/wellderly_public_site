@@ -2,42 +2,20 @@ import Link from 'next/link';
 import { BrandLogo } from '@/components/layout/brand-logo';
 import {
   HeroReveal,
-  HoverCard,
   ScrollReveal,
 } from '@/components/ui/motion-primitives';
 import { primaryButtonClass } from '@/components/ui/button';
-import { SectionContainer } from '@/components/ui/section';
 import { CarePlanPreview } from '@/components/marketing/care-plan-preview';
+import { FeatureCardsSection } from '@/components/marketing/feature-cards-section';
+import { WhyFeelsDifferentSection } from '@/components/marketing/why-feels-different-section';
+import { VoicesSection } from '@/components/marketing/voices-section';
+import { SupportCategoriesSection } from '@/components/marketing/support-categories-section';
+import { OutcomesSection } from '@/components/marketing/outcomes-section';
 
 const FATHER_SON = '/assets/marketing/paperwork.png';
 const HERO_BG_DESKTOP = '/assets/marketing/sunset.png';
 const HERO_BG_MOBILE =
   '/assets/marketing/sunset.png';
-
-const ICON = (name: string) => `/assets/icons/${name}`;
-
-const THREE_CARDS = [
-  {
-    title: 'Clear Recommendations Across the Categories That Matter Most',
-    body: 'Home Setting • Enriching Care • Wellness & Social • Transportation • Life Easing Tools • Legal & Financial',
-  },
-  {
-    title: 'Private, Secure & Truly Unbiased',
-    body: 'Your information stays private. We accept zero sponsorships or referral fees from providers.',
-  },
-  {
-    title: 'Easy to Share with Your Care Team',
-    body: 'Collaborate seamlessly with family, friends, and care providers.',
-  },
-] as const;
-
-const WALK_AWAY_BULLETS = [
-  'Tailored recommendations across all key care categories',
-  'Local resources and vetted provider options',
-  'Realistic cost estimates and funding guidance',
-  'Clear, prioritized next steps with human-supported activation',
-  'Secure, updatable plan you can share with family and providers',
-] as const;
 
 export function LandingPage() {
   return (
@@ -69,7 +47,7 @@ export function LandingPage() {
 
           {/* Mobile: logo + compact nav */}
           <header className="relative z-30 px-5 pt-6 md:hidden">
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-4">
               <Link
                 href="/"
                 className="inline-block w-fit rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-black/40 [&_img]:h-8 [&_img]:max-h-8 [&_img]:w-auto [&_img]:brightness-0 [&_img]:invert [&_img]:opacity-95"
@@ -77,7 +55,7 @@ export function LandingPage() {
                 <BrandLogo alt="Wellderly home" size="header" />
               </Link>
               <nav
-                className="flex flex-col gap-5 text-[0.6875rem] font-medium text-white/85"
+                className="text-[0.6875rem] font-medium text-white/85"
                 aria-label="Page sections"
               >
                 <div className="flex flex-wrap items-center gap-x-5 gap-y-2.5">
@@ -90,16 +68,13 @@ export function LandingPage() {
                   <Link href="/about" className="hover:text-white">
                     About Us
                   </Link>
+                  <Link
+                    href="/assessment/relationship"
+                    className="underline decoration-white/30 underline-offset-4 hover:text-white hover:decoration-white/60"
+                  >
+                    Start Assessment
+                  </Link>
                 </div>
-                <Link
-                  href="/assessment/relationship"
-                  className={[
-                    primaryButtonClass,
-                    'min-h-11 w-full px-4 py-2.5 text-center text-[0.8125rem] shadow-none',
-                  ].join(' ')}
-                >
-                  Start Assessment
-                </Link>
               </nav>
             </div>
           </header>
@@ -144,7 +119,7 @@ export function LandingPage() {
           </div>
 
           <div className="relative z-20 flex min-h-[100dvh] flex-col md:min-h-screen md:items-center md:justify-center">
-            <div className="mx-auto flex w-full max-w-content flex-1 flex-col px-5 pb-24 pt-10 md:flex-none md:px-6 md:pb-32 md:pt-32 lg:px-10 lg:pb-36 lg:pt-36">
+            <div className="mx-auto flex w-full max-w-content flex-1 flex-col px-5 pb-24 pt-14 md:flex-none md:px-6 md:pb-32 md:pt-32 lg:px-10 lg:pb-36 lg:pt-36">
               <div className="flex w-full max-w-[24rem] flex-1 flex-col text-white sm:max-w-[26rem] md:max-w-[40rem] md:text-left lg:max-w-[42rem]">
                 <div className="flex flex-1 flex-col justify-start gap-0 md:block md:flex-none">
                   <HeroReveal delay={0.08}>
@@ -157,13 +132,13 @@ export function LandingPage() {
                     </h1>
                   </HeroReveal>
                   <HeroReveal delay={0.12}>
-                    <p className="mx-auto mt-7 max-w-[22rem] text-center text-[0.8125rem] font-medium leading-[1.62] tracking-[0.01em] text-white/76 sm:mt-8 sm:max-w-[26rem] md:mx-0 md:mt-8 md:max-w-[36rem] md:text-left md:text-[0.875rem] md:leading-[1.65]">
+                    <p className="mx-auto mt-7 max-w-[22rem] text-balance text-center text-[0.8125rem] font-medium leading-[1.62] tracking-[0.01em] text-white/76 sm:mt-8 sm:max-w-[26rem] md:mx-0 md:mt-8 md:max-w-[36rem] md:text-left md:text-[0.875rem] md:leading-[1.65]">
                       Empowered by expertise. Activated with heart. Always
                       unbiased.
                     </p>
                   </HeroReveal>
                   <HeroReveal delay={0.16}>
-                    <p className="mx-auto mt-7 max-w-[23rem] text-center text-[0.875rem] font-normal leading-[1.78] text-white/86 sm:mt-8 sm:max-w-[26rem] md:mx-0 md:mt-8 md:max-w-[36rem] md:text-left md:text-[1.0625rem] md:leading-[1.76]">
+                    <p className="mx-auto mt-7 max-w-[22.5rem] text-balance text-center text-[0.875rem] font-normal leading-[1.78] text-white/86 sm:mt-8 sm:max-w-[26rem] md:mx-0 md:mt-8 md:max-w-[36rem] md:text-left md:text-[1.0625rem] md:leading-[1.76]">
                       Answer a short guided assessment and instantly receive a
                       clear preview of practical priorities and next steps you
                       can actually act on.
@@ -181,7 +156,7 @@ export function LandingPage() {
                         >
                           Start Free Preview
                         </Link>
-                        <p className="text-center text-[0.75rem] font-medium leading-[1.7] text-white/70 sm:text-[0.8125rem] md:text-left">
+                        <p className="mx-auto max-w-[21rem] text-center text-[0.75rem] font-medium leading-[1.75] text-white/70 sm:max-w-none sm:text-[0.8125rem] md:mx-0 md:text-left">
                           Takes 3–5 minutes • Private &amp; secure • No credit
                           card required
                         </p>
@@ -189,7 +164,7 @@ export function LandingPage() {
                     </div>
                   </HeroReveal>
                   <HeroReveal delay={0.26}>
-                    <div className="mx-auto mt-12 max-w-[23rem] space-y-4 text-center text-[0.75rem] font-normal leading-[1.75] text-white/68 sm:mt-14 sm:max-w-[26rem] sm:text-[0.8125rem] md:mx-0 md:mt-14 md:max-w-[36rem] md:text-left md:leading-[1.72]">
+                    <div className="mx-auto mt-11 max-w-[22.5rem] space-y-4 text-center text-[0.75rem] font-normal leading-[1.75] text-white/68 sm:mt-14 sm:max-w-[26rem] sm:text-[0.8125rem] md:mx-0 md:mt-14 md:max-w-[36rem] md:text-left md:leading-[1.72]">
                       <p className="text-white/72">
                         Built with 25 Years of Real Expertise • Powered by AI
                       </p>
@@ -205,77 +180,9 @@ export function LandingPage() {
           </div>
         </section>
 
-        <section
-          className="border-b border-line/40 bg-white px-4 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-24"
-          aria-labelledby="three-cards-heading"
-        >
-          <ScrollReveal className="mx-auto max-w-content">
-            <h2
-              id="three-cards-heading"
-              className="sr-only"
-            >
-              What you can expect
-            </h2>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-7 lg:gap-8">
-              {THREE_CARDS.map((card) => (
-                <HoverCard key={card.title}>
-                  <article className="flex h-full flex-col rounded-card border border-line/40 bg-sand/40 p-6 transition-shadow duration-200 sm:p-7">
-                    <h3 className="text-[0.9375rem] font-semibold leading-[1.35] text-navy sm:text-base sm:leading-[1.32]">
-                      {card.title}
-                    </h3>
-                    <p className="mt-4 text-[0.875rem] leading-[1.68] text-navy/72 sm:mt-5 sm:text-[0.9375rem] sm:leading-[1.65]">
-                      {card.body}
-                    </p>
-                  </article>
-                </HoverCard>
-              ))}
-            </div>
-          </ScrollReveal>
-        </section>
+        <FeatureCardsSection />
 
-        <SectionContainer className="border-b border-line/35 bg-canvas py-20 sm:py-24 lg:py-32" aria-labelledby="pain-heading">
-          <ScrollReveal className="flex flex-col gap-16 lg:grid lg:grid-cols-2 lg:items-center lg:gap-20">
-            <div className="max-w-xl lg:order-1">
-              <p className="text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-navy/40 sm:text-[0.6875rem]">
-                Why this feels different
-              </p>
-              <h2
-                id="pain-heading"
-                className="mt-4 text-[1.3125rem] font-semibold leading-[1.22] tracking-tight text-navy sm:mt-5 sm:text-[1.4375rem] lg:text-[1.8125rem] lg:leading-[1.18]"
-              >
-                Caregiving is hard enough without having to figure everything out
-                alone.
-              </h2>
-              <p className="mt-7 max-w-prose text-[0.9375rem] leading-[1.74] text-navy/78 sm:mt-8 sm:text-base sm:leading-[1.76]">
-                You&apos;re already juggling work, kids, and life — now you&apos;re
-                also responsible for your parent&apos;s care. Wellderly gives you
-                clarity, reduces overwhelm, and puts you back in control.
-              </p>
-            </div>
-            <figure className="w-full min-w-0 lg:order-2">
-              <HoverCard>
-                <div className="overflow-hidden rounded-[1.125rem] border border-line/35 bg-white transition-shadow duration-200 sm:rounded-shell">
-                  <div className="aspect-[4/3] w-full overflow-hidden bg-mist/30 lg:aspect-[815/556]">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={FATHER_SON}
-                      alt="Father and son — family caregiving"
-                      width={815}
-                      height={556}
-                      className="h-full w-full object-cover object-[center_28%]"
-                    />
-                  </div>
-                  <figcaption className="border-t border-line/45 bg-white px-4 py-4 sm:px-5 sm:py-5">
-                    <p className="text-[0.8125rem] font-semibold leading-[1.55] text-navy/78 sm:text-[0.875rem] sm:leading-[1.5]">
-                      This is how the plan is built — 25 years of expertise + AI
-                      = decisions you can trust.
-                    </p>
-                  </figcaption>
-                </div>
-              </HoverCard>
-            </figure>
-          </ScrollReveal>
-        </SectionContainer>
+        <WhyFeelsDifferentSection imageSrc={FATHER_SON} />
 
         <section
           id="how-it-works"
@@ -283,7 +190,7 @@ export function LandingPage() {
           aria-labelledby="how-heading"
         >
           <ScrollReveal className="mx-auto max-w-content">
-            <div className="max-w-2xl">
+            <div className="mx-auto max-w-2xl lg:mx-0">
               <p className="text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-navy/40 sm:text-[0.6875rem]">
                 How it works
               </p>
@@ -295,121 +202,77 @@ export function LandingPage() {
               </h2>
             </div>
 
-            <div className="mt-12 max-w-4xl sm:mt-14 lg:mt-16">
-              <CarePlanPreview />
+            <div className="mt-12 grid grid-cols-1 gap-8 sm:mt-14 lg:mt-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-start lg:gap-8">
+              <div className="w-full max-w-4xl lg:max-w-none">
+                <CarePlanPreview />
+              </div>
+
+              <aside
+                aria-label="Example plan preview placeholder"
+                className="rounded-shell border border-line/35 bg-white/70 p-5 shadow-[0_12px_32px_-28px_rgba(9,22,42,0.28)] sm:p-6 lg:p-7"
+              >
+                <p className="text-[0.625rem] font-semibold uppercase tracking-[0.14em] text-navy/42 sm:text-[0.6875rem]">
+                  Plan Preview
+                </p>
+                <h3 className="mt-3 text-[1.0625rem] font-semibold leading-snug text-navy sm:text-[1.125rem]">
+                  Example Plan Preview
+                </h3>
+                <p className="mt-3 max-w-[32ch] text-[0.875rem] leading-[1.68] text-navy/68 sm:text-[0.9375rem] sm:leading-[1.66]">
+                  This space is reserved for an inline example plan so families
+                  can see what actionable guidance looks like at a glance.
+                </p>
+                <div
+                  className="mt-6 space-y-3 rounded-card border border-line/30 bg-sand/70 p-4 sm:mt-7"
+                  aria-hidden="true"
+                >
+                  <div className="h-2.5 w-28 rounded-full bg-navy/18" />
+                  <div className="h-2.5 w-full rounded-full bg-navy/12" />
+                  <div className="h-2.5 w-[88%] rounded-full bg-navy/12" />
+                  <div className="h-2.5 w-[80%] rounded-full bg-navy/12" />
+                  <div className="grid grid-cols-2 gap-2 pt-1">
+                    <div className="h-8 rounded-control bg-navy/10" />
+                    <div className="h-8 rounded-control bg-navy/10" />
+                  </div>
+                </div>
+              </aside>
             </div>
           </ScrollReveal>
         </section>
 
-        <section
-          id="what-you-get"
-          className="border-b border-line/40 bg-white px-4 py-20 sm:px-6 sm:py-24 lg:px-10 lg:py-32"
-          aria-labelledby="get-heading"
-        >
-          <ScrollReveal className="mx-auto max-w-content">
-            <div className="max-w-2xl">
-              <p className="text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-navy/40 sm:text-[0.6875rem]">
-                Outcomes
-              </p>
-              <h2
-                id="get-heading"
-                className="mt-4 text-[1.3125rem] font-semibold leading-[1.22] tracking-tight text-navy sm:mt-5 sm:text-[1.4375rem] lg:text-[1.625rem]"
-              >
-                What You Walk Away With
-              </h2>
-              <p className="mt-5 max-w-prose text-[0.9375rem] leading-[1.74] text-navy/72 sm:mt-6 sm:text-base sm:leading-[1.76]">
-                A comprehensive, unbiased care plan you can actually use — not
-                another pile of bookmarks.
-              </p>
-            </div>
-            <ul className="mt-12 grid max-w-3xl grid-cols-1 gap-6 sm:mt-14 sm:gap-7 lg:max-w-4xl">
-              {WALK_AWAY_BULLETS.map((item) => (
-                <li key={item} className="flex gap-3.5 sm:gap-4">
-                  <span
-                    className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-mist"
-                    aria-hidden="true"
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={ICON('Tick.svg')}
-                      alt=""
-                      width={14}
-                      height={14}
-                      className="h-3.5 w-3.5 object-contain opacity-90"
-                    />
-                  </span>
-                  <span className="min-w-0 text-[0.9375rem] leading-[1.72] text-navy/82 sm:text-base sm:leading-[1.74]">
-                    {item}
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-14 sm:mt-16">
-              <Link
-                href="/assessment/relationship"
-                className={[
-                  primaryButtonClass,
-                  'inline-flex min-h-[3.25rem] w-full justify-center px-8 sm:w-auto sm:min-w-[12rem]',
-                ].join(' ')}
-              >
-                Start Free Preview
-              </Link>
-            </div>
-          </ScrollReveal>
-        </section>
+        <SupportCategoriesSection />
 
-        <SectionContainer id="stories" className="border-b border-line/35 bg-canvas py-20 sm:py-24 lg:py-32" aria-labelledby="stories-heading">
-          <ScrollReveal>
-            <div className="max-w-xl">
-              <p className="text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-navy/40 sm:text-[0.6875rem]">
-                Voices
-              </p>
-              <h2
-                id="stories-heading"
-                className="mt-4 text-[1.3125rem] font-semibold leading-snug tracking-tight text-navy sm:mt-5 sm:text-[1.4375rem] lg:text-[1.625rem]"
-              >
-                From Caregivers
-              </h2>
-            </div>
-            <div className="mt-12 grid grid-cols-1 gap-8 sm:mt-14 lg:grid-cols-2 lg:gap-12">
-              <HoverCard>
-                <figure className="rounded-card border border-line/35 bg-white/90 p-6 transition-shadow duration-200 sm:p-7">
-                  <blockquote className="text-base font-normal leading-[1.72] text-navy/85 sm:text-[1.0625rem] sm:leading-[1.74]">
-                    <p>
-                      &ldquo;Wellderly helped me stop spiraling and finally
-                      understand what to do first.&rdquo;
-                    </p>
-                    <footer className="mt-4 text-sm text-navy/45">
-                      — Sarah, 52
-                    </footer>
-                  </blockquote>
-                </figure>
-              </HoverCard>
-              <HoverCard>
-                <figure className="rounded-card border border-line/35 bg-white/90 p-6 transition-shadow duration-200 sm:p-7">
-                  <blockquote className="text-base font-normal leading-[1.72] text-navy/85 sm:text-[1.0625rem] sm:leading-[1.74]">
-                    <p>
-                      &ldquo;Someone turned a messy problem into a plan I could
-                      follow.&rdquo;
-                    </p>
-                    <footer className="mt-4 text-sm text-navy/45">
-                      — Mike, 48
-                    </footer>
-                  </blockquote>
-                </figure>
-              </HoverCard>
-            </div>
-          </ScrollReveal>
-        </SectionContainer>
+        <OutcomesSection />
+
+        <VoicesSection />
 
       </main>
 
       <footer
-        className="border-t border-white/10 bg-[#09162A] px-4 py-12 sm:px-6 sm:py-14 lg:px-10 lg:py-16"
+        className="relative isolate overflow-hidden border-t border-white/10 bg-[#09162A] px-4 py-12 sm:px-6 sm:py-14 lg:px-10 lg:py-16"
         role="contentinfo"
         aria-labelledby="final-cta-heading"
       >
-        <div className="mx-auto max-w-content">
+        <div
+          className="pointer-events-none absolute inset-0 -z-10"
+          aria-hidden="true"
+        >
+          {/* Bottom-right line motif: subtle, tone-on-tone brand texture */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/assets/shapes/curved%20Lines.png"
+            alt=""
+            className="absolute -right-24 -bottom-20 w-[24rem] max-w-none opacity-[0.08] mix-blend-screen sm:-right-20 sm:w-[30rem] lg:-right-14 lg:-bottom-24 lg:w-[38rem]"
+          />
+          {/* Top-left rounded motif: very low-opacity atmospheric lift */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/assets/shapes/Rounded%20Shapes.png"
+            alt=""
+            className="absolute -left-20 -top-20 w-[14rem] max-w-none opacity-[0.05] mix-blend-screen sm:w-[18rem] lg:-left-16 lg:-top-24 lg:w-[22rem]"
+          />
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-content">
           <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
             <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
               <Link
@@ -431,6 +294,17 @@ export function LandingPage() {
               <p className="mt-3 max-w-md text-sm leading-relaxed text-white/70">
                 Proprietary &amp; Confidential • Secure &amp; Private
               </p>
+              <nav
+                className="mt-6 text-sm text-white/70"
+                aria-label="Legal"
+              >
+                <Link
+                  href="/terms"
+                  className="underline decoration-white/25 underline-offset-4 transition hover:text-white hover:decoration-white/60 focus:outline-none focus-visible:text-white focus-visible:decoration-white focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#09162A]"
+                >
+                  Terms &amp; Conditions
+                </Link>
+              </nav>
             </div>
 
             <div className="flex w-full max-w-md flex-col items-center self-center text-center lg:max-w-lg lg:items-start lg:self-start lg:text-left">
