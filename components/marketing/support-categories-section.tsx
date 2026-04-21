@@ -27,9 +27,9 @@ const CATEGORIES: Category[] = [
       'Memory care options for cognitive support',
       'Living setup recommendations that fit family priorities',
     ],
-    image: '/assets/marketing/assisted_living.png',
+    image: '/assets/marketing/women_on_a_porch.png',
     imageAlt:
-      'Elderly woman being supported with medication by a caregiver in a calm environment',
+      'Two women sitting together on a sunlit porch, sharing a calm moment at home',
   },
   {
     id: 'enriching-care',
@@ -227,62 +227,42 @@ export function SupportCategoriesSection() {
           role="tabpanel"
           aria-labelledby={`support-tab-${openCategory.id}`}
           className={[
-            'relative mt-5 overflow-hidden rounded-shell border border-[rgba(9,22,42,0.09)] bg-[#F7F2EB] p-5 transition-all duration-200 ease-out sm:mt-4 sm:p-8 lg:p-10',
+            'relative mt-5 overflow-hidden rounded-shell border border-[rgba(9,22,42,0.05)] bg-[#F7F2EB] px-5 py-7 transition-all duration-200 ease-out sm:mt-4 sm:px-10 sm:py-10 lg:px-12 lg:py-12',
             panelVisible ? 'translate-y-0 opacity-100' : 'translate-y-1 opacity-0',
           ].join(' ')}
         >
           <div
-            className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-[#D88C86]/80"
+            className="pointer-events-none absolute inset-x-0 top-0 z-20 h-[2px] bg-[#D88C86]/55"
             aria-hidden="true"
           />
-          <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
-            <div className={openCategory.image ? 'order-last lg:order-first' : ''}>
-              <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-navy/44">
-                Selected focus
-              </p>
-              <h3 className="mt-2.5 text-[1.0625rem] font-semibold leading-[1.34] text-[#09162A] sm:mt-3 sm:text-[1.3125rem]">
-                {openCategory.title}
-              </h3>
-              <p className="mt-3 max-w-prose text-[0.9375rem] leading-[1.7] text-[rgba(9,22,42,0.8)] sm:mt-4 sm:text-base sm:leading-[1.74]">
-                {openCategory.description}
-              </p>
-              {openCategory.image ? (
-                <>
-                  <ul className="mt-5 grid grid-cols-1 gap-2.5 sm:mt-6 sm:gap-3">
-                    {openCategory.bullets.map((item, i) => (
-                      <li
-                        key={item}
-                        className={[
-                          'flex items-start gap-3',
-                          i >= 3 ? 'hidden sm:flex' : '',
-                        ].join(' ')}
-                      >
-                        <span
-                          className="mt-[0.55em] h-1.5 w-1.5 shrink-0 rounded-full bg-[#D88C86]"
-                          aria-hidden="true"
-                        />
-                        <span className="text-[0.9375rem] leading-[1.6] text-[rgba(9,22,42,0.82)] sm:text-base sm:leading-[1.62]">
-                          {item}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              ) : null}
-              <Link
-                href="/assessment/relationship"
-                className="mt-6 inline-flex items-center gap-2 rounded-full border border-[rgba(200,90,91,0.32)] bg-[rgba(200,90,91,0.1)] px-5 py-2.5 text-[0.875rem] font-semibold text-[#B45152] shadow-[0_10px_24px_-22px_rgba(184,81,82,0.6)] transition hover:-translate-y-0.5 hover:border-[rgba(200,90,91,0.45)] hover:bg-[rgba(200,90,91,0.14)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C85A5B]/55 focus-visible:ring-offset-2 sm:mt-8 sm:px-6 sm:py-3 sm:text-[0.9375rem]"
-              >
-                See how this fits into your plan
-                <span aria-hidden="true">→</span>
-              </Link>
-            </div>
 
+          {/* Embedded illustration — desktop only (drawn into the card, fades into the warm surface) */}
+          {openCategory.image ? (
+            <div
+              key={`bg-${openCategory.id}`}
+              aria-hidden="true"
+              className={[
+                'pointer-events-none absolute inset-y-0 right-0 z-0 hidden w-[58%] transition-opacity duration-300 ease-out lg:block',
+                panelVisible ? 'opacity-95' : 'opacity-0',
+              ].join(' ')}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={openCategory.image}
+                alt=""
+                className="block h-full w-full object-cover [filter:saturate(0.92)] [mask-image:linear-gradient(to_right,transparent_0%,black_45%)]"
+              />
+            </div>
+          ) : null}
+
+          {/* Text content — sits on top of the illustration layer */}
+          <div className="relative z-10">
+            {/* Full-bleed illustration — mobile + tablet only, fades into the card surface */}
             {openCategory.image ? (
               <div
-                key={openCategory.id}
+                key={`m-${openCategory.id}`}
                 className={[
-                  'order-first mx-auto w-full max-w-[280px] transition-all duration-300 ease-out lg:order-last lg:mx-0 lg:self-start',
+                  'relative -mx-5 -mt-7 mb-2 overflow-hidden transition-all duration-300 ease-out sm:-mx-10 sm:-mt-10 sm:mb-3 lg:hidden',
                   panelVisible
                     ? 'translate-y-0 opacity-100'
                     : 'translate-y-1 opacity-0',
@@ -292,35 +272,77 @@ export function SupportCategoriesSection() {
                 <img
                   src={openCategory.image}
                   alt={openCategory.imageAlt ?? ''}
-                  className="block h-full w-full translate-y-1 rounded-2xl object-cover opacity-95 [filter:sepia(0.08)_saturate(0.9)]"
+                  className="block h-[220px] w-full object-cover object-center [filter:saturate(0.95)] sm:h-[260px]"
+                />
+                {/* Eyebrow badge — overlays the image top-left */}
+                <span className="absolute left-4 top-4 inline-flex items-center rounded-full border border-white/60 bg-white/95 px-3 py-1 text-[0.6875rem] font-bold uppercase tracking-[0.14em] text-[#B45152] shadow-[0_4px_12px_-8px_rgba(9,22,42,0.35)] backdrop-blur-sm sm:left-5 sm:top-5 sm:text-[0.75rem] sm:tracking-[0.16em]">
+                  Selected focus
+                </span>
+                {/* Bottom fade into the card surface */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#F7F2EB] via-[#F7F2EB]/85 to-transparent sm:h-32"
                 />
               </div>
-            ) : (
-              <div>
-                <ul className="grid grid-cols-1 gap-2.5 sm:gap-3.5">
-                  {openCategory.bullets.map((item, i) => (
-                    <li
-                      key={item}
-                      className={[
-                        'flex items-start gap-3',
-                        i >= 3 ? 'hidden sm:flex' : '',
-                      ].join(' ')}
-                    >
-                      <span
-                        className="mt-[0.55em] h-1.5 w-1.5 shrink-0 rounded-full bg-[#D88C86]"
-                        aria-hidden="true"
-                      />
-                      <span className="text-[0.9375rem] leading-[1.6] text-[rgba(9,22,42,0.82)] sm:text-base sm:leading-[1.62]">
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-5 max-w-prose text-[0.75rem] leading-[1.68] text-navy/55 sm:mt-7 sm:text-[0.8125rem] sm:leading-[1.72]">
-                  We tailor recommendations to local availability, your timeline, and the support your family can sustain.
-                </p>
-              </div>
-            )}
+            ) : null}
+
+            <div
+              className={openCategory.image ? 'lg:max-w-[30rem]' : ''}
+            >
+              <p
+                className={[
+                  'text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-navy/44',
+                  openCategory.image ? 'hidden lg:block' : '',
+                ].join(' ')}
+              >
+                Selected focus
+              </p>
+              <h3
+                className={[
+                  'text-[1.0625rem] font-semibold leading-[1.34] text-[#09162A] sm:text-[1.3125rem]',
+                  openCategory.image
+                    ? 'mt-0 sm:mt-1 lg:mt-3.5'
+                    : 'mt-3 sm:mt-3.5',
+                ].join(' ')}
+              >
+                {openCategory.title}
+              </h3>
+              <p className="mt-3 max-w-prose text-[0.9375rem] leading-[1.72] text-[rgba(9,22,42,0.82)] sm:mt-3.5 sm:text-base sm:leading-[1.76]">
+                {openCategory.description}
+              </p>
+
+              <ul className="mt-6 grid grid-cols-1 gap-2.5 sm:mt-7 sm:gap-3">
+                {openCategory.bullets.map((item, i) => (
+                  <li
+                    key={item}
+                    className={[
+                      'flex items-start gap-3',
+                      i >= 3 ? 'hidden sm:flex' : '',
+                    ].join(' ')}
+                  >
+                    <span
+                      className="mt-[0.55em] h-1.5 w-1.5 shrink-0 rounded-full bg-[#D88C86]"
+                      aria-hidden="true"
+                    />
+                    <span className="text-[0.9375rem] leading-[1.6] text-[rgba(9,22,42,0.84)] sm:text-base sm:leading-[1.62]">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <Link
+                href="/assessment/relationship"
+                className="mt-7 inline-flex items-center gap-2 rounded-full border border-[rgba(200,90,91,0.32)] bg-[rgba(200,90,91,0.12)] px-5 py-2.5 text-[0.875rem] font-semibold text-[#B45152] shadow-[0_10px_24px_-22px_rgba(184,81,82,0.6)] transition hover:-translate-y-0.5 hover:border-[rgba(200,90,91,0.45)] hover:bg-[rgba(200,90,91,0.16)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C85A5B]/55 focus-visible:ring-offset-2 sm:mt-8 sm:px-6 sm:py-3 sm:text-[0.9375rem]"
+              >
+                See how this fits into your plan
+                <span aria-hidden="true">→</span>
+              </Link>
+
+              <p className="mt-8 max-w-prose text-[0.75rem] leading-[1.68] text-navy/60 sm:mt-10 sm:text-[0.8125rem] sm:leading-[1.72]">
+                We tailor recommendations to local availability, your timeline, and the support your family can sustain.
+              </p>
+            </div>
           </div>
         </div>
 
