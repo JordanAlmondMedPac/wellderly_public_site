@@ -2,15 +2,14 @@ import Link from 'next/link';
 import { BrandLogo } from '@/components/layout/brand-logo';
 import {
   HeroReveal,
-  ScrollReveal,
 } from '@/components/ui/motion-primitives';
 import { primaryButtonClass } from '@/components/ui/button';
-import { CarePlanPreview } from '@/components/marketing/care-plan-preview';
 import { FeatureCardsSection } from '@/components/marketing/feature-cards-section';
 import { WhyFeelsDifferentSection } from '@/components/marketing/why-feels-different-section';
 import { VoicesSection } from '@/components/marketing/voices-section';
 import { SupportCategoriesSection } from '@/components/marketing/support-categories-section';
 import { OutcomesSection } from '@/components/marketing/outcomes-section';
+import { HowItWorksSection } from '@/components/marketing/how-it-works-section';
 
 const FATHER_SON = '/assets/marketing/paperwork.png';
 const HERO_BG_DESKTOP = '/assets/marketing/sunset.png';
@@ -184,64 +183,11 @@ export function LandingPage() {
 
         <WhyFeelsDifferentSection imageSrc={FATHER_SON} />
 
-        <section
-          id="how-it-works"
-          className="border-b border-line/40 bg-sand px-4 py-20 sm:px-6 sm:py-24 lg:px-10 lg:py-32"
-          aria-labelledby="how-heading"
-        >
-          <ScrollReveal className="mx-auto max-w-content">
-            <div className="mx-auto max-w-2xl lg:mx-0">
-              <p className="text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-navy/40 sm:text-[0.6875rem]">
-                How it works
-              </p>
-              <h2
-                id="how-heading"
-                className="mt-4 text-[1.3125rem] font-semibold leading-[1.2] tracking-tight text-navy sm:mt-5 sm:text-[1.4375rem] lg:text-[1.8125rem]"
-              >
-                How Wellderly Works
-              </h2>
-            </div>
-
-            <div className="mt-12 grid grid-cols-1 gap-8 sm:mt-14 lg:mt-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-start lg:gap-8">
-              <div className="w-full max-w-4xl lg:max-w-none">
-                <CarePlanPreview />
-              </div>
-
-              <aside
-                aria-label="Example plan preview placeholder"
-                className="rounded-shell border border-line/35 bg-white/70 p-5 shadow-[0_12px_32px_-28px_rgba(9,22,42,0.28)] sm:p-6 lg:p-7"
-              >
-                <p className="text-[0.625rem] font-semibold uppercase tracking-[0.14em] text-navy/42 sm:text-[0.6875rem]">
-                  Plan Preview
-                </p>
-                <h3 className="mt-3 text-[1.0625rem] font-semibold leading-snug text-navy sm:text-[1.125rem]">
-                  Example Plan Preview
-                </h3>
-                <p className="mt-3 max-w-[32ch] text-[0.875rem] leading-[1.68] text-navy/68 sm:text-[0.9375rem] sm:leading-[1.66]">
-                  This space is reserved for an inline example plan so families
-                  can see what actionable guidance looks like at a glance.
-                </p>
-                <div
-                  className="mt-6 space-y-3 rounded-card border border-line/30 bg-sand/70 p-4 sm:mt-7"
-                  aria-hidden="true"
-                >
-                  <div className="h-2.5 w-28 rounded-full bg-navy/18" />
-                  <div className="h-2.5 w-full rounded-full bg-navy/12" />
-                  <div className="h-2.5 w-[88%] rounded-full bg-navy/12" />
-                  <div className="h-2.5 w-[80%] rounded-full bg-navy/12" />
-                  <div className="grid grid-cols-2 gap-2 pt-1">
-                    <div className="h-8 rounded-control bg-navy/10" />
-                    <div className="h-8 rounded-control bg-navy/10" />
-                  </div>
-                </div>
-              </aside>
-            </div>
-          </ScrollReveal>
-        </section>
+        <HowItWorksSection />
 
         <SupportCategoriesSection />
 
-        <OutcomesSection />
+        {/* <OutcomesSection /> */}
 
         <VoicesSection />
 

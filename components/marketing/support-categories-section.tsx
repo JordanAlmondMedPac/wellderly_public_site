@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
 import { ScrollReveal } from '@/components/ui/motion-primitives';
 
 type Category = {
@@ -27,7 +26,7 @@ const CATEGORIES: Category[] = [
       'Memory care options for cognitive support',
       'Living setup recommendations that fit family priorities',
     ],
-    image: '/assets/marketing/women_on_a_porch.png',
+    image: '/images/illustrations/home_settings.png',
     imageAlt:
       'Two women sitting together on a sunlit porch, sharing a calm moment at home',
   },
@@ -43,6 +42,9 @@ const CATEGORIES: Category[] = [
       'Palliative and hospice pathways when appropriate',
       'Care intensity matched to the current stage of need',
     ],
+    image: '/images/illustrations/enriching_care.png',
+    imageAlt:
+      'Two women sitting together on a sunlit porch, sharing a calm moment at home',
   },
   {
     id: 'wellness-social',
@@ -56,6 +58,9 @@ const CATEGORIES: Category[] = [
       'Nutrition and exercise support for daily energy',
       'Simple social routines that strengthen mood and resilience',
     ],
+    image: '/images/illustrations/wellness_and_social.png',
+    imageAlt:
+      'Two women sitting together on a sunlit porch, sharing a calm moment at home',
   },
   {
     id: 'transportation',
@@ -69,6 +74,9 @@ const CATEGORIES: Category[] = [
       'Community shuttle and local mobility services',
       'Driving transition support with backup travel plans',
     ],
+    image: '/images/illustrations/transportation.png',
+    imageAlt:
+      'Two women sitting together on a sunlit porch, sharing a calm moment at home',
   },
   {
     id: 'life-easing-tools',
@@ -82,6 +90,9 @@ const CATEGORIES: Category[] = [
       'Smart pill dispensers and medication reminders',
       'Fall-monitoring tools that support independence',
     ],
+    image: '/images/illustrations/life_easing_tools.png',
+    imageAlt:
+      'Two women sitting together on a sunlit porch, sharing a calm moment at home',
   },
   {
     id: 'legal-financial',
@@ -95,6 +106,9 @@ const CATEGORIES: Category[] = [
       'Medicaid and VA benefit pathway guidance',
       'Care cost planning for near- and long-term needs',
     ],
+    image: '/images/illustrations/legal_and_financial.png',
+    imageAlt:
+      'Two women sitting together on a sunlit porch, sharing a calm moment at home',
   },
 ];
 
@@ -331,15 +345,7 @@ export function SupportCategoriesSection() {
                 ))}
               </ul>
 
-              <Link
-                href="/assessment/relationship"
-                className="mt-7 inline-flex items-center gap-2 rounded-full border border-[rgba(200,90,91,0.32)] bg-[rgba(200,90,91,0.12)] px-5 py-2.5 text-[0.875rem] font-semibold text-[#B45152] shadow-[0_10px_24px_-22px_rgba(184,81,82,0.6)] transition hover:-translate-y-0.5 hover:border-[rgba(200,90,91,0.45)] hover:bg-[rgba(200,90,91,0.16)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C85A5B]/55 focus-visible:ring-offset-2 sm:mt-8 sm:px-6 sm:py-3 sm:text-[0.9375rem]"
-              >
-                See how this fits into your plan
-                <span aria-hidden="true">→</span>
-              </Link>
-
-              <p className="mt-8 max-w-prose text-[0.75rem] leading-[1.68] text-navy/60 sm:mt-10 sm:text-[0.8125rem] sm:leading-[1.72]">
+              <p className="mt-7 max-w-prose text-[0.75rem] leading-[1.68] text-navy/60 sm:mt-8 sm:text-[0.8125rem] sm:leading-[1.72]">
                 We tailor recommendations to local availability, your timeline, and the support your family can sustain.
               </p>
             </div>
