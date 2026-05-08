@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { BrandLogo } from '@/components/layout/brand-logo';
+import { SiteHeader } from '@/components/layout/site-header';
 import {
   HeroReveal,
 } from '@/components/ui/motion-primitives';
@@ -44,77 +44,9 @@ export function LandingPage() {
             aria-hidden="true"
           />
 
-          {/* Mobile: logo + compact nav */}
-          <header className="relative z-30 px-5 pt-6 md:hidden">
-            <div className="flex flex-col gap-4">
-              <Link
-                href="/"
-                className="inline-block w-fit rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-black/40 [&_img]:h-8 [&_img]:max-h-8 [&_img]:w-auto [&_img]:brightness-0 [&_img]:invert [&_img]:opacity-95"
-              >
-                <BrandLogo alt="Wellderly home" size="header" />
-              </Link>
-              <nav
-                className="text-[0.6875rem] font-medium text-white/85"
-                aria-label="Page sections"
-              >
-                <div className="flex flex-wrap items-center gap-x-5 gap-y-2.5">
-                  <Link href="#how-it-works" className="hover:text-white">
-                    How it works
-                  </Link>
-                  <Link href="#what-you-get" className="hover:text-white">
-                    What you get
-                  </Link>
-                  <Link href="/about" className="hover:text-white">
-                    About Us
-                  </Link>
-                  <Link
-                    href="/assessment/relationship"
-                    className="underline decoration-white/30 underline-offset-4 hover:text-white hover:decoration-white/60"
-                  >
-                    Start Assessment
-                  </Link>
-                </div>
-              </nav>
-            </div>
-          </header>
-
-          {/* Desktop: full sand nav */}
-          <div className="absolute inset-x-0 top-0 z-30 hidden px-6 pt-4 md:block lg:px-10">
-            <div className="mx-auto max-w-content rounded-2xl border border-line/55 bg-sand shadow-[0_10px_24px_-22px_rgba(9,22,42,0.2)]">
-              <div className="flex min-h-[4.5rem] items-center justify-between gap-10 px-6 sm:min-h-[4.875rem] sm:px-8 lg:min-h-[5rem] lg:px-10">
-                <Link
-                  href="/"
-                  className="inline-block rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2"
-                >
-                  <BrandLogo alt="Wellderly home" size="header" />
-                </Link>
-                <div className="ml-4 flex items-center gap-9 sm:ml-6 sm:gap-10 lg:ml-10 lg:gap-12">
-                  <nav
-                    className="flex items-center gap-7 text-sm font-medium text-navy/80 lg:gap-8"
-                    aria-label="Page sections"
-                  >
-                    <Link href="#how-it-works" className="hover:text-navy">
-                      How it works
-                    </Link>
-                    <Link href="#what-you-get" className="hover:text-navy">
-                      What you get
-                    </Link>
-                    <Link href="/about" className="hover:text-navy">
-                      About Us
-                    </Link>
-                  </nav>
-                  <Link
-                    href="/assessment/relationship"
-                    className={[
-                      primaryButtonClass,
-                      'min-h-10 px-4 py-2 text-sm shadow-none sm:min-h-11 sm:px-5 lg:ml-3',
-                    ].join(' ')}
-                  >
-                    Start Assessment
-                  </Link>
-                </div>
-              </div>
-            </div>
+          {/* Universal nav — shared across landing, about, terms */}
+          <div className="relative z-30">
+            <SiteHeader variant="marketing" chrome="elevated" />
           </div>
 
           <div className="relative z-20 flex min-h-[100dvh] flex-col md:min-h-screen md:items-center md:justify-center">

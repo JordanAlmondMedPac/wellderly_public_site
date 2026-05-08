@@ -19,10 +19,10 @@ export function VoicesSection() {
             From Caregivers
           </h2>
         </div>
-        <div className="mt-12 grid grid-cols-1 gap-8 sm:mt-14 lg:grid-cols-2 lg:gap-12">
+        <div className="mt-12 grid grid-cols-1 gap-8 sm:mt-14 lg:grid-cols-2 lg:items-stretch lg:gap-12">
           <HoverCard>
-            <figure className="rounded-card border border-line/35 bg-white/90 p-6 transition-shadow duration-200 sm:p-7">
-              <blockquote className="text-base font-normal leading-[1.72] text-navy/85 sm:text-[1.0625rem] sm:leading-[1.74]">
+            <figure className="h-full rounded-card border border-line/35 bg-white/90 p-6 transition-shadow duration-200 sm:p-7">
+              <blockquote className="flex h-full flex-col justify-between text-base font-normal leading-[1.72] text-navy/85 sm:text-[1.0625rem] sm:leading-[1.74]">
                 <p>
                   &ldquo;Wellderly helped me stop spiraling and finally
                   understand what to do first.&rdquo;
@@ -34,8 +34,8 @@ export function VoicesSection() {
             </figure>
           </HoverCard>
           <HoverCard>
-            <figure className="rounded-card border border-line/35 bg-white/90 p-6 transition-shadow duration-200 sm:p-7">
-              <blockquote className="text-base font-normal leading-[1.72] text-navy/85 sm:text-[1.0625rem] sm:leading-[1.74]">
+            <figure className="h-full rounded-card border border-line/35 bg-white/90 p-6 transition-shadow duration-200 sm:p-7">
+              <blockquote className="flex h-full flex-col justify-between text-base font-normal leading-[1.72] text-navy/85 sm:text-[1.0625rem] sm:leading-[1.74]">
                 <p>
                   &ldquo;Someone turned a messy problem into a plan I could
                   follow.&rdquo;

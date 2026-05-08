@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import '@fontsource-variable/google-sans-flex/wght.css';
 import './globals.css';
+import { RouteTransition } from '@/components/layout/route-transition';
 
 export const metadata: Metadata = {
   title: 'Wellderly — Care planning for families',
@@ -15,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <RouteTransition>{children}</RouteTransition>
+      </body>
     </html>
   );
 }

@@ -1,15 +1,16 @@
 import type { ReactNode } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { SiteHeader } from '@/components/layout/site-header';
 import { primaryButtonClass } from '@/components/ui/button';
 import {
   type AboutCopy,
   splitPromiseValue,
 } from '@/lib/about-copy';
+import { AboutHero } from './about-hero';
+import { AboutOurStory } from './about-our-story';
+import { AboutOurVision } from './about-our-vision';
 
 const AMY_PARADE = '/assets/marketing/Amy.jpg';
-const HERO_IMAGE = '/assets/marketing/handholding.jpg';
 const AMY_HEADSHOT = '/assets/marketing/Amy_faceshot_wewebsize.jpg';
 const KLAY_HEADSHOT = '/assets/marketing/klay-huddleston.jpg';
 
@@ -49,123 +50,19 @@ type AboutMarketingViewProps = {
 };
 
 export function AboutMarketingView({ copy }: AboutMarketingViewProps) {
-  const narrativeIntro = copy.story[0] ?? '';
-  const narrativeBody = copy.story.slice(1, 5);
   const amyBio = copy.story[2] ?? '';
   const klayBio = copy.story[3] ?? '';
 
   return (
     <main className="overflow-x-hidden bg-canvas">
-      {/* 1. Hero — true full-bleed image (viewport width + underlay behind nav) */}
-      <section
-        className="relative isolate left-1/2 min-h-[min(100svh,56rem)] w-screen max-w-[100vw] -translate-x-1/2 border-b border-line/25"
-        aria-labelledby="about-hero-heading"
-      >
-        <div className="absolute inset-0 z-0">
-          <Image
-            src={HERO_IMAGE}
-            alt="Two people holding hands in a gentle, supportive gesture"
-            fill
-            priority
-            className="object-cover object-center"
-            sizes="100vw"
-          />
-          <div
-            className="absolute inset-0 bg-gradient-to-t from-[#09162A]/88 via-[#09162A]/45 to-[#09162A]/20 sm:from-[#09162A]/82 sm:via-[#09162A]/35 sm:to-transparent"
-            aria-hidden
-          />
-          <div
-            className="absolute inset-0 bg-gradient-to-r from-[#09162A]/55 to-transparent sm:from-[#09162A]/40 md:w-[70%]"
-            aria-hidden
-          />
-        </div>
+      <AboutHero hero={copy.hero} />
 
-        <div className="relative z-10 flex min-h-[min(100svh,56rem)] flex-col">
-          <div className="relative z-20 shrink-0">
-            <SiteHeader variant="marketing" />
-          </div>
-          <div className="relative z-10 flex flex-1 flex-col justify-end pb-14 pt-4 sm:pb-16 lg:pb-20">
-            <ContentWidth>
-              <p className="text-[0.6875rem] font-medium uppercase tracking-[0.18em] text-white/70">
-                About Wellderly
-              </p>
-              <h1
-                id="about-hero-heading"
-                className="mt-4 max-w-[16ch] text-[2rem] font-semibold leading-[1.08] tracking-tight text-white sm:text-[2.35rem] lg:text-[2.65rem]"
-              >
-                {copy.hero.title}
-              </h1>
-              <p className="mt-5 max-w-[36ch] text-[0.9375rem] font-normal leading-[1.58] text-white/88 sm:text-[1rem]">
-                {copy.hero.subtitle}
-              </p>
-              <div className="mt-8 max-w-[40rem] space-y-5 text-[0.9375rem] font-normal leading-[1.78] text-white/90 sm:text-[1.03rem] sm:leading-[1.76]">
-                {copy.hero.supporting.map((line) => (
-                  <p key={line}>{line}</p>
-                ))}
-              </div>
-              <div className="mt-10">
-                <Link
-                  href="/assessment/relationship"
-                  className={[
-                    primaryButtonClass,
-                    'min-h-[3rem] px-7 text-[0.9375rem] shadow-none',
-                  ].join(' ')}
-                >
-                  {copy.hero.cta}
-                </Link>
-              </div>
-            </ContentWidth>
-          </div>
-        </div>
-      </section>
+      <AboutOurStory
+        narrativeIntro={copy.story[0]}
+        narrativeBody={copy.story.slice(1, 5)}
+      />
 
-      {/* 2. Narrative / why this exists — single story column, no cards */}
-      <section
-        className="border-b border-line/20 py-20 sm:py-24 lg:py-28"
-        aria-labelledby="narrative-heading"
-      >
-        <ContentWidth>
-            <div className="mx-auto max-w-[62ch]">
-              <h2
-                id="narrative-heading"
-                className="text-[1.35rem] font-semibold leading-[1.22] tracking-tight text-navy sm:text-[1.5rem] lg:text-[1.65rem]"
-              >
-                {narrativeIntro}
-              </h2>
-              <div className="mt-10 space-y-7 text-[1.02rem] leading-[1.85] text-navy/80 sm:text-[1.0625rem] sm:leading-[1.82]">
-                {narrativeBody.map((paragraph, i) => (
-                  <div key={`narrative-${i}`} className="space-y-7">
-                    {readableParagraphs(paragraph).map((chunk, j) => (
-                      <p key={`narrative-${i}-${j}`}>{chunk}</p>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
-        </ContentWidth>
-      </section>
-
-      {/* Vision — editorial continuation (founder copy only) */}
-      <section
-        className="border-b border-line/20 bg-sand/80 py-20 sm:py-24 lg:py-28"
-        aria-labelledby="vision-heading"
-      >
-        <ContentWidth>
-            <div className="mx-auto max-w-[62ch]">
-              <h2
-                id="vision-heading"
-                className="text-[1.35rem] font-semibold leading-[1.22] tracking-tight text-navy sm:text-[1.5rem]"
-              >
-                {copy.vision[0]}
-              </h2>
-              <div className="mt-10 space-y-7 text-[1.02rem] leading-[1.85] text-navy/80 sm:text-[1.0625rem]">
-                {copy.vision.slice(1).map((line) => (
-                  <p key={line}>{line}</p>
-                ))}
-              </div>
-            </div>
-        </ContentWidth>
-      </section>
+      <AboutOurVision />
 
       {/* 3. What we’re building / approach — vertical blocks, typography hierarchy only */}
       <section
