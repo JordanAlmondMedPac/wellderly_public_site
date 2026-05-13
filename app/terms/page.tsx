@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { BrandLogo } from '@/components/layout/brand-logo';
 import { SiteHeader } from '@/components/layout/site-header';
+import { MarketingSiteFooter } from '@/components/marketing/marketing-site-footer';
 
 export const metadata: Metadata = {
   title: 'Terms & Conditions — Wellderly Wayfinder',
@@ -376,23 +376,7 @@ export default function TermsPage() {
         </section>
       </main>
 
-      <footer
-        className="border-t border-line/50 bg-white px-4 py-8 sm:px-6 sm:py-10 lg:px-10"
-        role="contentinfo"
-      >
-        <div className="mx-auto flex w-full max-w-content flex-col items-start gap-5 text-sm text-navy/65 sm:flex-row sm:items-center sm:justify-between">
-          <Link
-            href="/"
-            className="inline-block rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2"
-            aria-label="Wellderly home"
-          >
-            <BrandLogo alt="Wellderly" />
-          </Link>
-          <p className="text-[0.8125rem] leading-[1.6] text-navy/55">
-            © 2026 Wellderly Wayfinder · Proprietary &amp; Confidential
-          </p>
-        </div>
-      </footer>
+      <MarketingSiteFooter />
     </>
   );
 }

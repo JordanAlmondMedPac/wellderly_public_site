@@ -13,7 +13,7 @@
 export function AboutOurVision() {
   return (
     <section
-      className="border-b border-line/20 bg-sand/80 py-24 sm:py-32 lg:py-36"
+      className="border-b border-line/20 bg-white py-24 sm:py-32 lg:py-36"
       aria-labelledby="vision-heading"
     >
       <div className="mx-auto w-full max-w-content px-4 sm:px-6 lg:px-10">
